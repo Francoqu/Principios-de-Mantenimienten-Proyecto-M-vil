@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animate_do/animate_do.dart';
 
 import 'package:tutorconnect/utils/images.dart';
-import 'package:tutorconnect/widgets/common/primary_button.dart'; // Import the new widget
+import 'package:tutorconnect/widgets/common/primary_button.dart';
+import 'package:tutorconnect/widgets/common/custom_text_field.dart'; // Import the new widget
 
 import '../providers/auth_provider.dart';
 import '../routes/app_routes.dart';
@@ -80,7 +81,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   const SizedBox(height: 20),
                   _buildForgotPasswordButton(),
                   const SizedBox(height: 30),
-                  // Use the new PrimaryButton widget
                   FadeInUp(
                     duration: const Duration(milliseconds: 1900),
                     child: PrimaryButton(
@@ -174,8 +174,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         ),
         child: Column(
           children: <Widget>[
-            _buildTextField(controller: _emailController, hintText: "Email"),
-            _buildTextField(
+            // Use the new CustomTextField widget
+            CustomTextField(controller: _emailController, hintText: "Email"),
+            CustomTextField(
               controller: _passwordController,
               hintText: "Password",
               obscureText: true,
@@ -186,33 +187,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String hintText,
-    bool obscureText = false,
-  }) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Color.fromRGBO(196, 135, 198, .3),
-          ),
-        ),
-      ),
-      child: TextField(
-        controller: controller,
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: hintText,
-          hintStyle: TextStyle(
-            color: Colors.grey.shade700,
-          ),
-        ),
-      ),
-    );
-  }
+  // The _buildTextField method has been removed
 
   Widget _buildForgotPasswordButton() {
     return FadeInUp(
@@ -232,6 +207,4 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ),
     );
   }
-
-  // The _buildLoginButton method has been removed
 }
