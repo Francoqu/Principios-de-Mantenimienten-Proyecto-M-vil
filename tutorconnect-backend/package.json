@@ -1,0 +1,25 @@
+{
+  "name": "tutorconnect-backend",
+  "version": "1.0.0",
+  "description": "Backend para notificaciones y servicios de TutorConnect",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "body-parser": "^2.2.0",
+    "buffer": "^6.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "fetch-blob": "^4.0.0",
+    "firebase-admin": "^13.4.0",
+    "form-data": "^4.0.4",
+    "google-auth-library": "^10.2.0",
+    "node-fetch": "^2.7.0"
+  }
+}
