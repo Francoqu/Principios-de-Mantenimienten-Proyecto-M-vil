@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animate_do/animate_do.dart';
 
 import 'package:tutorconnect/utils/images.dart';
+import 'package:tutorconnect/widgets/common/primary_button.dart'; // Import the new widget
 
 import '../providers/auth_provider.dart';
 import '../routes/app_routes.dart';
@@ -79,7 +80,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   const SizedBox(height: 20),
                   _buildForgotPasswordButton(),
                   const SizedBox(height: 30),
-                  _buildLoginButton(),
+                  // Use the new PrimaryButton widget
+                  FadeInUp(
+                    duration: const Duration(milliseconds: 1900),
+                    child: PrimaryButton(
+                      text: "Login",
+                      isLoading: _isEmailLoginLoading,
+                      onPressed: _login,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -224,27 +233,5 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  Widget _buildLoginButton() {
-    return FadeInUp(
-      duration: const Duration(milliseconds: 1900),
-      child: MaterialButton(
-        onPressed: _isEmailLoginLoading ? null : _login,
-        color: const Color.fromRGBO(49, 39, 79, 1),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50),
-        ),
-        height: 50,
-        child: Center(
-          child: _isEmailLoginLoading
-              ? const CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                )
-              : const Text(
-                  "Login",
-                  style: TextStyle(color: Colors.white),
-                ),
-        ),
-      ),
-    );
-  }
+  // The _buildLoginButton method has been removed
 }
